@@ -4,30 +4,49 @@ import "./style.css";
 
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
+import { Button } from "bootstrap";
 
-window.onload = function() {
-  const symbols = ["♦", "♥", "♠", "♣"];
-  const numbers = [
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "J",
-    "Q",
-    "K",
-    "A"
-  ];
+const suits = ["♦", "♥", "♠", "♣"];
+const ranks = [
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "J",
+  "Q",
+  "K",
+  "A"
+];
 
-  let rdmNumber = Math.floor(Math.random() * numbers.length);
+function getRandomSuit() {
+  const randomSuit = Math.floor(Math.random() * suits.length);
+  return suits[randomSuit];
+}
 
-document.querySelector(".center"); = 
-    number[rdmNumber];
-    
-  console.log(center);
-  console.log(numbers);
-};
+function getRandomRank() {
+  const randomRank = Math.floor(Math.random() * ranks.length);
+  return ranks[randomRank];
+}
+
+function generateCard() {
+  const randomRank = getRandomRank();
+  document.getElementById("middle").textContent = randomRank;
+
+  const randomSuit = getRandomSuit();
+  document.getElementById("top").textContent = randomSuit;
+  document.getElementById("bottom").textContent = randomSuit;
+
+  if (randomSuit === "♦" || randomSuit === "♥") {
+    document.getElementById("top").style.color = "red";
+    document.getElementById("bottom").style.color = "red";
+  } else {
+    return;
+  }
+}
+window.onload = generateCard;
+// onclick = generateCard;

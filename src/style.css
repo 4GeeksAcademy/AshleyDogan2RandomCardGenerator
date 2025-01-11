@@ -22,7 +22,16 @@ body {
   font-size: 60px;
 }
 
-#center {
+#middle {
   margin: auto auto auto auto;
   font-size: 60px;
+}
+
+button {
+  display: flex;
+  margin: 10px auto auto auto;
+  background-color: goldenrod;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px 15px;
 }
